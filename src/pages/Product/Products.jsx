@@ -1,0 +1,41 @@
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { api } from "../../api";
+
+const Products = () => {
+  const navigate = useNavigate(); 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    api.get("/products")
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+  if (!products) {
+    return <div className="container py-10 text-center min-h-[81vh]">Loading...</div>;
+  }
+  return (
+    <div className="container mx-auto font-sans-serif  py-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-h-[81vh]">
+      {products?.map((product) => (
+        <div
+          key={product.id}
+          className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-5 cursor-pointer  "
+          onClick={() => navigate(`/products/${product.id}`)}
+        >
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-full h-48 object-cover rounded-lg mb-4"
+          />
+          <h2 className="text-lg font-bold">{product.title.slice(0,20)}...</h2>
+          <p className="text-gray-600 truncate">{product.description}</p>
+          <div className="mt-3 flex justify-between items-center">
+            <span className="text-gray-800 font-semibold">${product.price}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Products;
