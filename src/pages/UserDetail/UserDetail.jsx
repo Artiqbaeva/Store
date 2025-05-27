@@ -41,4 +41,4 @@ const UserDetail = () => {
   )
 }
 
-export default UserDetail
+export default React.memo(UserDetail)
