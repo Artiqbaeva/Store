@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import UserDetail from './pages/UserDetail/UserDetail';
+import Selected from './pages/Selected/Selected';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/products' element={<Products />} />
         <Route path='/users' element={<Users />} />
+        <Route path='/selected' element={<Selected />} />
         <Route path='/products/:id' element={<ProductDetail />} />
         <Route path="/users/:id" element={<UserDetail />} />
     </Routes>

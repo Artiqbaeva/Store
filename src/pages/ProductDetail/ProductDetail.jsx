@@ -23,13 +23,13 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 py-10 min-h-[81vh]">
+    <div className="container mx-auto grid grid-cols-1 place-items-center md:grid-cols-2 gap-10 py-10 min-h-[81vh]">
       <div>
         <img
 
           src={data.image}
           alt={data.title}
-          className="rounded-lg w-full object-contain / p-4 "
+          className="rounded-lg w-full object-contain  p-4 "
         />
       </div>
       <div className="flex flex-col justify-center">

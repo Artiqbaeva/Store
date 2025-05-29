@@ -36,6 +36,9 @@ const Header = () => {
           <NavLink to="/users" className={navLinkStyle}>
             Users
           </NavLink>
+          <NavLink to="/selected" className={navLinkStyle}>
+              Selected
+          </NavLink>
 
           <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-md border">
       <input
