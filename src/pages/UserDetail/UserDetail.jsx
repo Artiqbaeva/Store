@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api";
+import { SlArrowLeft } from 'react-icons/sl';
 
 const UserDetail = () => {
       const { id } = useParams();
       const [user, setUser] = useState(null);
-    
+      const navigate = useNavigate()
     useEffect(() => {
         window.scrollTo(0, 0);
       }, [id]);
@@ -21,7 +22,9 @@ const UserDetail = () => {
         return <div className="container py-10 text-center min-h-[81vh]">Loading...</div>;
       }
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 bg-white shadow-xl rounded-xl border border-gray-200 min-h-[79vh]">
+    <div>
+      <SlArrowLeft  className="text-2xl m-18" onClick={()=> navigate(-1)}  />
+      <div className="max-w-xl mx-auto mt-10 p-6 bg-white shadow-xl rounded-xl border border-gray-200 min-h-[79vh]"> 
     <h2 className="text-4xl font-bold mb-10 text-gray-800 text-center ">User Profile</h2>
     <div className="space-y-8 text-gray-700 text-2xl">
       <div><strong>Full Name:</strong> {user.name.firstname} {user.name.lastname}</div>
@@ -38,6 +41,8 @@ const UserDetail = () => {
       </div>
     </div>
   </div>
+    </div>
+   
   )
 }
 

@@ -1,11 +1,12 @@
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api";
-
+import { SlArrowLeft } from "react-icons/sl";
 const ProductDetail = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,19 +18,22 @@ const ProductDetail = () => {
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
   }, [id]);
-
+  
+  
   if (!data) {
     return <div className="container py-10 text-center min-h-[81vh]">Loading...</div>;
   }
 
   return (
-    <div className="container mx-auto grid grid-cols-1 place-items-center md:grid-cols-2 gap-10 py-10 min-h-[81vh]">
+    <div>
+      <SlArrowLeft  className="text-2xl m-18 " onClick={()=> navigate(-1)}  />
+      <div className="container mx-auto grid grid-cols-1 place-items-center md:grid-cols-2 gap-10 py-10 min-h-[81vh]">
       <div>
+      
         <img
-
           src={data.image}
           alt={data.title}
-          className="rounded-lg w-full object-contain  p-4 "
+          className="rounded-lg w-[70%] mt-2 object-contain  p-4 "
         />
       </div>
       <div className="flex flex-col justify-center">
@@ -41,6 +45,8 @@ const ProductDetail = () => {
         </button>
       </div>
     </div>
+    </div>
+
   );
 };
 

@@ -1,7 +1,21 @@
 import React from 'react'
-import Products from '../Product/Products';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import './style.css';
 
 const Home = () => {
+  const images = [
+    'https://i.etsystatic.com/41283809/r/il/e6a1d1/5929813794/il_fullxfull.5929813794_4n0m.jpg',
+    'https://images.unsplash.com/photo-1441986300917-64674bd600d8?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3RvcmV8ZW58MHx8MHx8fDA%3D',
+    'https://media.istockphoto.com/id/832186590/photo/2-for-1-and-two-for-one-offer-and-special-deal-for-t-shirt-and-clothing-in-clothes-shop.jpg?s=612x612&w=0&k=20&c=cjGEMbDj3Dvkle-XBfAm_hzXynTpxbb6Ycy127m-v2U=',
+    'https://retaildesignblog.net/wp-content/uploads/2020/08/ON-OFF-store-by-Studiolite-01-780x520.png',
+    'https://retaildesignblog.net/wp-content/uploads/2019/03/Off-White-store-02-780x521.png',
+  ];
+
     const products = [
         {
           id: 1,
@@ -25,13 +39,20 @@ const Home = () => {
     
       return (
         <div className="min-h-screen bg-white text-gray-800">
-          <section className=" bg-gray-900 text-white py-40 px-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Our Store</h1>
-            <p className="text-lg md:text-xl mb-6">Shop the latest trends at unbeatable prices.</p>
-            <a href='/products' className="bg-white text-gray-800 font-semibold py-2 px-6 rounded-full hover:bg-gray-100 transition">
-              Shop Now
-            </a>
-          </section>
+           <Swiper
+              navigation={true}
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000 }}
+              loop={true}
+              modules={[Navigation, Autoplay, Pagination]}
+              className="mySwiper"
+    >
+      {images.map((url, index) => (
+        <SwiperSlide key={index}>
+          <img src={url} alt={`Slide ${index + 1}`} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
           <section className="py-20 px-6">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Featured Products</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">

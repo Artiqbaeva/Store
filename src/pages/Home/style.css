@@ -1,0 +1,32 @@
+#app {
+    height: 100%;
+  }
+  .swiper {
+    width: 100%;
+    height: 85vh;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .swiper-button-next,
+.swiper-button-prev {
+  color: rgb(15, 15, 15); 
+}
+.swiper-pagination-bullet {
+    background: rgb(15, 15, 15); 
+    opacity: .5; 
+  }
+  .swiper-pagination-bullet-active {
+    background: rgb(3, 3, 3); 
+    opacity: 1; 
+  }

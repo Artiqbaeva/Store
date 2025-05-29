@@ -15,7 +15,7 @@ const Selected = () => {
   };
 
   return (
-    <div className='min-h-[81vh]'>
+    <div className='min-h-[81vh] container '>
       <div className="container mx-auto font-sans-serif py-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {state.wishlist?.map(product => (
           <div
