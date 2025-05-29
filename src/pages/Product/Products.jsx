@@ -25,7 +25,7 @@ const Products = () => {
           <img
             src={product.image}
             alt={product.title}
-            className="w-full h-48 object-cover rounded-lg mb-4"
+            className="w-full h-48 rounded-lg mb-4 object-contain"
           />
           <h2 className="text-lg font-bold">{product.title.slice(0,20)}...</h2>
           <p className="text-gray-600 truncate">{product.description}</p>
